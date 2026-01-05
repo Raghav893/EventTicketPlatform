@@ -6,31 +6,43 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class Events {
-    @Id
-    @Column(nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long event_id;
-    @Column(nullable = false)
-    String title;
-    @Column(nullable = false)
-    String description;
-    @Column(nullable = false)
-    String location;
-    @Column(nullable = false)
-    LocalDateTime dateTime;
-    @Column(nullable = false)
-    String OrganizerUsername;
-    @Column(nullable = false)
-    LocalDateTime CreatedAt;
-    @Column(nullable = false)
-    LocalDateTime UpdatedAt;
-    @Enumerated(EnumType.STRING)
-    EventStatus status;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long eventId;
+
+    @Column(nullable = false)
+    private String title;
+
+    @Column(nullable = false)
+    private String description;
+
+    @Column(nullable = false)
+    private String location;
+
+    @Column(nullable = false)
+    private LocalDateTime dateTime;
+
+    @Column(nullable = false)
+    private String organizerUsername;
+
+    @Column(nullable = false)
+    private LocalDateTime createdAt;
+
+    @Column(nullable = false)
+    private LocalDateTime updatedAt;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private EventStatus status;
+
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Ticket> tickets;
 }

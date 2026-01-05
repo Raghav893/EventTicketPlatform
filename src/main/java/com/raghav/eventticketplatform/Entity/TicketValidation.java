@@ -6,24 +6,27 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class TicketValidation {
-    @Column(nullable = false)
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long ValidationId;
-    @Column(nullable = false)
-    Long ticket_id;
-    @Column(nullable = false)
-    String staffUsername;
-    @Column(nullable = false)
-    LocalDateTime CreatedAt;
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    Method entryMethod;
+    private Long validationId;
 
+    @OneToOne
+    @JoinColumn(name = "ticket_id", nullable = false, unique = true)
+    private Ticket ticket;
+
+    @Column(nullable = false)
+    private String staffUsername;
+
+    @Column(nullable = false)
+    private LocalDateTime createdAt;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Method entryMethod;
 }
