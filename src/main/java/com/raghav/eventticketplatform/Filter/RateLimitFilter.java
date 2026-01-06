@@ -33,7 +33,9 @@ public class RateLimitFilter extends OncePerRequestFilter {
         else if (path.equals("/auth/register")) {
             configuration = RateLimitConfig.registerationLimiter();
         }
-        else {
+        else if (path.equals("/events/create")) {
+            configuration = RateLimitConfig.EventCreationLimit();
+        } else {
             configuration = null;
         }
         if (configuration == null){

@@ -11,6 +11,11 @@ public class RateLimitConfig {
                         Limit.capacity(3).refillGreedy(3, Duration.ofMinutes(1)))
                 .build();
     }
+    public static BucketConfiguration EventCreationLimit(){
+        return BucketConfiguration.builder().addLimit(bandwidthBuilderCapacityStage ->
+                bandwidthBuilderCapacityStage.capacity(3).refillGreedy(3,Duration.ofDays(1)))
+                .build();
+    }
     public static BucketConfiguration registerationLimiter(){
         return BucketConfiguration.builder()
                 .addLimit(Limit ->
