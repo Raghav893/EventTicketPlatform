@@ -28,10 +28,15 @@ public class JwtService {
             throw new RuntimeException(e);
         }
     }
+    public String extractRole(String token) {
+        return extractAllClaims(token).get("role", String.class);
+    }
 
-    public String genrateToken(String Username) {
+
+    public String genrateToken(String Username,String role) {
 
         Map<String,Object> claims = new HashMap<>();
+        claims.put("role",role);
         return Jwts.builder()
                 .claims()
                 .add(claims)

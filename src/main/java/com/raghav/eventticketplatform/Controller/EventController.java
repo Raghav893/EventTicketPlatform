@@ -4,7 +4,6 @@ import com.raghav.eventticketplatform.Entity.EventStatus;
 import com.raghav.eventticketplatform.Entity.Events;
 import com.raghav.eventticketplatform.Service.EventServices;
 import com.raghav.eventticketplatform.Service.RoleCheckService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

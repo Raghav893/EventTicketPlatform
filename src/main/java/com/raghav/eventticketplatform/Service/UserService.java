@@ -48,7 +48,8 @@ public class UserService {
                                 dto.getPassword()
                         )
                 );
+        Users user = repo.findByUsername(dto.getUsername());
 
-        return jwtService.genrateToken(dto.getUsername());
+        return jwtService.genrateToken(user.getUsername(),user.getRoles().name());
     }
 }
