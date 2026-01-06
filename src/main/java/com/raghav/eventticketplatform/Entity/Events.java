@@ -44,5 +44,5 @@ public class Events {
     private EventStatus status;
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Ticket> tickets;
+    private List<TicketType> tickets;
 }

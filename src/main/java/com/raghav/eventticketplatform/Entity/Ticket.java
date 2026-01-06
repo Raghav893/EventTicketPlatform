@@ -19,8 +19,10 @@ public class Ticket {
     @Column(nullable = false, unique = true)
     private Long ticketCode;
 
-    @Column(nullable = false)
-    private Long ticketTypeId;
+
+    @ManyToOne
+    @JoinColumn(name = "ticket_type_id")
+    private TicketType ticketType;
 
     @ManyToOne
     @JoinColumn(name = "event_id", nullable = false)

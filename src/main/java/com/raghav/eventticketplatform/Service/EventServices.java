@@ -24,9 +24,6 @@ public class EventServices {
     }
     public Events createEvent(Events event,String username) {
 
-        Authentication authentication =
-                SecurityContextHolder.getContext().getAuthentication();
-
 
 
         event.setOrganizerUsername(username);
