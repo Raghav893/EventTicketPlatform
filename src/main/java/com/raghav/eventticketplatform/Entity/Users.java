@@ -18,22 +18,22 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
-    @Column(nullable = false,unique = true,length = 50,updatable = false)
+    @Column(nullable = false, unique = true, length = 50, updatable = false)
     private String username;
 
     @Column(nullable = false)
-    private  String password;
+    private String password;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    Roles roles;
-    String authProvider = "JWT";
+    private Roles roles;
 
     @Column(nullable = false)
-    private boolean enabled = true;
+    private String authProvider;
 
-    @Column(nullable = false , updatable = false)
-    LocalDateTime CreatedAt;
+    @Column(nullable = false)
+    private boolean enabled;
 
-
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
 }
