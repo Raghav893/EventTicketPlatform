@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "edb6db0a-e84b-4b8f-b299-44d25b7b6da5",
+		"name": "EventTicketManagement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49553087",
+		"_collection_link": "https://raghavarora2309-9997315.postman.co/workspace/Raghav's-Workspace~b1ae6240-837d-4550-8eeb-f0dac186da55/collection/49553087-edb6db0a-e84b-4b8f-b299-44d25b7b6da5?action=share&source=collection_link&creator=49553087"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/events/create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiT1JHQU5JWkVSIiwic3ViIjoib3JnYW5pemVyMiIsImlhdCI6MTc2NzY5ODMxOCwiZXhwIjoxNzY3Njk4NDI2fQ.vRnNaxYMYVVpwl2eiSZToRiXuePizv_N647IQ1bZMXg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Tech Conference\",\r\n  \"description\": \"Spring Boot Event\",\r\n  \"location\": \"Delhi\",\r\n  \"dateTime\": \"2026-03-10T10:00:00\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/events/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"events",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8080/events/create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Tech Conference\",\r\n  \"description\": \"Spring Boot Event\",\r\n  \"location\": \"Delhi\",\r\n  \"dateTime\": \"2026-03-10T10:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/events/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"events",
+								"create"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 06 Jan 2026 11:18:47 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"eventId\": 1,\n    \"title\": \"Tech Conference\",\n    \"description\": \"Spring Boot Event\",\n    \"location\": \"Delhi\",\n    \"dateTime\": \"2026-03-10T10:00:00\",\n    \"organizerUsername\": \"organizer2\",\n    \"createdAt\": \"2026-01-06T16:48:47.6693462\",\n    \"updatedAt\": \"2026-01-06T16:48:47.6693462\",\n    \"status\": \"DRAFT\",\n    \"tickets\": null\n}"
+				}
+			]
+		}
+	]
+}
