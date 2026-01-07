@@ -125,6 +125,175 @@
 					"body": "{\n    \"eventId\": 1,\n    \"title\": \"Tech Conference\",\n    \"description\": \"Spring Boot Event\",\n    \"location\": \"Delhi\",\n    \"dateTime\": \"2026-03-10T10:00:00\",\n    \"organizerUsername\": \"organizer2\",\n    \"createdAt\": \"2026-01-06T16:48:47.6693462\",\n    \"updatedAt\": \"2026-01-06T16:48:47.6693462\",\n    \"status\": \"DRAFT\",\n    \"tickets\": null\n}"
 				}
 			]
+		},
+		{
+			"name": "http://localhost:8080/events/1/ticket-types",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiT1JHQU5JWkVSIiwic3ViIjoib3JnYW5pemVyMiIsImlhdCI6MTc2Nzc5MjAzMywiZXhwIjoxNzY3NzkyMTQxfQ.pLMcV30vMzO-G5bKKCJcMPQtZARhIC4WWhTNgLO9FQc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"normalandbeer\",\r\n  \"ticketQuantity\": 100\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/events/1/ticket-types",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"events",
+						"1",
+						"ticket-types"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/my-tickets",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQVRURU5ERUUiLCJzdWIiOiJSYWdoYXYiLCJpYXQiOjE3Njc3OTE2ODAsImV4cCI6MTc2Nzc5MTc4OH0.aTRl6l8F6YXDLwZJ5jqTtWJAeBu6NtoGAsexOOzRCrg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/my-tickets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"my-tickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/events/1/ticket-types/1/purchase",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQVRURU5ERUUiLCJzdWIiOiJSYWdoYXYiLCJpYXQiOjE3Njc3OTE2ODAsImV4cCI6MTc2Nzc5MTc4OH0.aTRl6l8F6YXDLwZJ5jqTtWJAeBu6NtoGAsexOOzRCrg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"VIPP\",\r\n  \"ticketQuantity\": 10\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/events/1/ticket-types/1/purchase",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"events",
+						"1",
+						"ticket-types",
+						"1",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"organizer2\",\r\n  \"password\": \"password\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/auth/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"Raghav\",\r\n  \"password\": \"password\",\r\n  \"Role\": \"ATTENDEE\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

@@ -18,6 +18,7 @@ public class TicketTypeService {
 
     public TicketType create(TicketType ticketType) {
         ticketType.setCreatedAt(LocalDateTime.now());
+        ticketType.setRemaining(ticketType.getTicketQuantity());
         return ticketTypeRepo.save(ticketType);
     }
 
