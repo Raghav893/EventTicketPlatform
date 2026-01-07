@@ -18,4 +18,11 @@ public class RoleCheckService {
                 .anyMatch(a -> a.getAuthority().equals("ROLE_ORGANIZER"));
         return isOrganizer;
     }
+    public boolean AttendeeCheck(){
+        Authentication authentication =SecurityContextHolder.getContext().getAuthentication();
+        boolean isAttendee = authentication.getAuthorities()
+                .stream()
+                .anyMatch(a->a.getAuthority().equals("ROLE_ATTENDEE"));
+        return isAttendee;
+    }
 }
