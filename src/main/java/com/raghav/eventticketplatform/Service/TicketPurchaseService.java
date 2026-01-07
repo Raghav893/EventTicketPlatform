@@ -5,6 +5,8 @@ import com.raghav.eventticketplatform.Repo.TicketRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class TicketPurchaseService {
@@ -12,5 +14,8 @@ public class TicketPurchaseService {
 
     public Ticket createTiceket(Ticket ticket) {
         return ticketRepo.save(ticket);
+    }
+    public List<Ticket> getTicketByAttendeeUsername(String username){
+        return ticketRepo.findByAttendeeUsername(username);
     }
 }

@@ -14,12 +14,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -41,33 +43,26 @@ public class TicketPurchaseController {
         if (!isAttendee) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
-
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
-
         Optional<Events> eventOpt = eventServices.getEventById(eventId);
         if (eventOpt.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
         Events event = eventOpt.get();
-
         Optional<TicketType> ticketTypeOpt = Optional.ofNullable(ticketTypeService.getTicketTypeById(ticketTypeId));
         if (ticketTypeOpt.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
         TicketType ticketType = ticketTypeOpt.get();
-
         if (!ticketType.getEvent().getEventId().equals(event.getEventId())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
-
         if (ticketType.getRemaining() <= 0) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
-
         ticketType.setRemaining(ticketType.getRemaining() - 1);
         ticketTypeService.update(event,ticketTypeId,ticketType);
-
         Ticket ticket = new Ticket();
         ticket.setEvent(event);
         ticket.setTicketType(ticketType);
@@ -77,7 +72,20 @@ public class TicketPurchaseController {
         ticket.setTicketCode(System.currentTimeMillis());
 
         Ticket saved = ticketPurchaseService.createTiceket(ticket);
-
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
+    }
+
+    @GetMapping("/my-tickets")
+    public ResponseEntity<List<Ticket>> getMyTickets() {
+        boolean isAttendee = roleCheckService.AttendeeCheck();
+        if (!isAttendee) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String Username = authentication.getName();
+        return new ResponseEntity<>(ticketPurchaseService.getTicketByAttendeeUsername(Username),HttpStatus.OK);
+
+
     }
 }
