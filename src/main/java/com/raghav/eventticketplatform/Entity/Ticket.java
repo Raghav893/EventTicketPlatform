@@ -1,5 +1,6 @@
 package com.raghav.eventticketplatform.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,6 +26,7 @@ public class Ticket {
     private TicketType ticketType;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "event_id", nullable = false)
     private Events event;
 

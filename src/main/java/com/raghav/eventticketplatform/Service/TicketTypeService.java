@@ -62,4 +62,7 @@ public class TicketTypeService {
     }
 
 
+    public TicketType getTicketTypeById(Long ticketTypeId) {
+        return ticketTypeRepo.findTicketTypeByTicketTypeId(ticketTypeId);
+    }
 }

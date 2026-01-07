@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TicketTypeRepo extends JpaRepository<TicketType,Long> {
+    TicketType findTicketTypeByTicketTypeId(Long ticketTypeId);
 }
