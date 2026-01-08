@@ -1,6 +1,8 @@
 package com.raghav.eventticketplatform.Service;
 
 import com.raghav.eventticketplatform.Entity.Ticket;
+import com.raghav.eventticketplatform.Entity.TicketStatus;
+import com.raghav.eventticketplatform.Entity.TicketValidation;
 import com.raghav.eventticketplatform.Repo.TicketRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,5 +23,9 @@ public class TicketPurchaseService {
     public Ticket getTicketByTicketCode(String TicketCode){
 
         return ticketRepo.findTicketByTicketCode(TicketCode);
+    }
+
+    public List<TicketValidation> getvalidTickets() {
+        return ticketRepo.getTicketByTicketStatus(TicketStatus.VALIDATED);
     }
 }

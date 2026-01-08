@@ -13,8 +13,7 @@ import java.time.LocalDateTime;
 public class TicketValidation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long validationId;
+    private String validationId;
 
     @OneToOne
     @JoinColumn(name = "ticket_id", nullable = false, unique = true)
@@ -24,7 +23,9 @@ public class TicketValidation {
     private String staffUsername;
 
     @Column(nullable = false)
-    private LocalDateTime createdAt;
+    private LocalDateTime ValidatedAt;
+
+
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

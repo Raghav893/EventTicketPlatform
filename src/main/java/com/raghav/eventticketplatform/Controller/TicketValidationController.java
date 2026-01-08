@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -57,7 +59,8 @@ public class TicketValidationController {
         ticketValidation.setTicket(ticket);
         ticketValidation.setStaffUsername(staffUsername);
         ticketValidation.setEntryMethod(Method.QR_SCAN);
-        ticketValidation.setCreatedAt(LocalDateTime.now());
+        ticketValidation.setValidatedAt(LocalDateTime.now());
+        ticketValidation.setValidationId(UUID.randomUUID().toString());
 
         TicketValidation saved =
                 ticketValidationService.createValidTicket(ticketValidation);
@@ -94,5 +97,32 @@ public class TicketValidationController {
         return ResponseEntity.ok(ticketInfoDto);
     }
 
+    @GetMapping("/events/{eventId}/validated-tickets")
+    public ResponseEntity<List<TicketValidation>> getValidatedTickets(@PathVariable Long eventId) {
+
+        boolean isOrganizer = roleCheckService.OrganizerCheck();
+        if (!isOrganizer) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+
+        Optional<Events> eventOpt = eventServices.getEventById(eventId);
+        if (eventOpt.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+
+        Events event = eventOpt.get();
+
+        if (!event.getOrganizerUsername().equals(username)) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+
+        List<TicketValidation> validatedTickets =
+                ticketValidationService.getValidatedTicketsByEvent(event);
+
+        return ResponseEntity.ok(validatedTickets);
+    }
 
 }

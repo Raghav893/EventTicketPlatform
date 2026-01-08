@@ -40,6 +40,6 @@ public class Ticket {
     @Column(nullable = false)
     private LocalDateTime purchasedAt;
 
-    @OneToOne(mappedBy = "ticket", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "ticket")
     private TicketValidation ticketValidation;
 }
