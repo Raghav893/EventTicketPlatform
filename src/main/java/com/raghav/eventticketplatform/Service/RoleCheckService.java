@@ -25,4 +25,11 @@ public class RoleCheckService {
                 .anyMatch(a->a.getAuthority().equals("ROLE_ATTENDEE"));
         return isAttendee;
     }
+    public boolean StaffCheck(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        boolean isStaff = authentication.getAuthorities()
+                .stream()
+                .anyMatch(a->a.getAuthority().equals("ROLE_STAFF"));
+        return isStaff;
+    }
 }
