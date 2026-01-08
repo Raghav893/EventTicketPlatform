@@ -35,7 +35,11 @@ public class RateLimitFilter extends OncePerRequestFilter {
         }
         else if (path.equals("/events/create")) {
             configuration = RateLimitConfig.EventCreationLimit();
-        } else {
+        }
+        else if (path.equals("/events/{eventId}/ticket-types/{ticketTypeId}/purchase")){
+            configuration = RateLimitConfig.ticketPurchaseLimiter();
+        }
+        else {
             configuration = null;
         }
         if (configuration == null){

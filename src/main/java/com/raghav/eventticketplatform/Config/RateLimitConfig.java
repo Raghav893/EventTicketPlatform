@@ -22,4 +22,10 @@ public class RateLimitConfig {
                         Limit.capacity(5).refillGreedy(5,Duration.ofHours(5)))
                 .build();
     }
+    public static BucketConfiguration ticketPurchaseLimiter(){
+        return BucketConfiguration.builder()
+                .addLimit(limit ->
+                        limit.capacity(1).refillGreedy(1,Duration.ofMinutes(5)))
+                .build();
+    }
 }
