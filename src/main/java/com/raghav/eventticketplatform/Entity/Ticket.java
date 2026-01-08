@@ -40,6 +40,7 @@ public class Ticket {
     @Column(nullable = false)
     private LocalDateTime purchasedAt;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "ticket")
     private TicketValidation ticketValidation;
 }
