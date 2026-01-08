@@ -48,7 +48,7 @@ public class RateLimitFilter extends OncePerRequestFilter {
         }
 
         String key =ip +":"+method+ ":" +path;
-        Bucket bucket = proxyManager.getProxy(key,()->configuration);//It injects key and configuration in proxyManager
+        Bucket bucket = proxyManager.getProxy(key,()->configuration);
 
         if (bucket.tryConsume(1)){
             filterChain.doFilter(request,response);
