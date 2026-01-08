@@ -203,7 +203,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQVRURU5ERUUiLCJzdWIiOiJSYWdoYXYiLCJpYXQiOjE3Njc3OTE2ODAsImV4cCI6MTc2Nzc5MTc4OH0.aTRl6l8F6YXDLwZJ5jqTtWJAeBu6NtoGAsexOOzRCrg",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQVRURU5ERUUiLCJzdWIiOiJSYWdoYXYiLCJpYXQiOjE3Njc4NjY3NzQsImV4cCI6MTc2Nzg2Njg4Mn0.qrkKXGRXr2NIkEJ0edzvlv3lqzCJPXx5DmeiCDHnxes",
 							"type": "string"
 						}
 					]
@@ -212,7 +212,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"VIPP\",\r\n  \"ticketQuantity\": 10\r\n}\r\n",
+					"raw": "\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -273,7 +273,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"username\": \"Raghav\",\r\n  \"password\": \"password\",\r\n  \"Role\": \"ATTENDEE\"\r\n}\r\n",
+					"raw": "{\r\n  \"username\": \"STAFF1\",\r\n  \"password\": \"password\",\r\n  \"Role\": \"STAFF\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -290,6 +290,84 @@
 					"path": [
 						"auth",
 						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/events/1/validated-tickets",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiT1JHQU5JWkVSIiwic3ViIjoib3JnYW5pemVyMiIsImlhdCI6MTc2Nzg2NzcwMSwiZXhwIjoxNzY3ODY3ODA5fQ.t4XP0wMOV8aLoF0IPZ9ICIIGZRbRLtuDQhzivo2wU80",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"organizer2\",\r\n  \"password\": \"password\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/events/1/validated-tickets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"events",
+						"1",
+						"validated-tickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/tickets/813b1822-bd89-4b49-9619-6a269836a05c/validate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiU1RBRkYiLCJzdWIiOiJTVEFGRjEiLCJpYXQiOjE3Njc4Njc2MTAsImV4cCI6MTc2Nzg2NzcxOH0.hPaABilCjiklGBj4wUcFEGkMRSCkVWz5pw4gFDo-jaQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tickets/813b1822-bd89-4b49-9619-6a269836a05c/validate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tickets",
+						"813b1822-bd89-4b49-9619-6a269836a05c",
+						"validate"
 					]
 				}
 			},
