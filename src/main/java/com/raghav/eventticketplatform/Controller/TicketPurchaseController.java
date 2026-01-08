@@ -23,6 +23,7 @@ import java.time.LocalDateTime;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -69,7 +70,7 @@ public class TicketPurchaseController {
         ticket.setAttendeeUsername(username);
         ticket.setTicketStatus(TicketStatus.UNUSED);
         ticket.setPurchasedAt(LocalDateTime.now());
-        ticket.setTicketCode(System.currentTimeMillis());
+        ticket.setTicketCode(UUID.randomUUID().toString());
 
         Ticket saved = ticketPurchaseService.createTiceket(ticket);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);

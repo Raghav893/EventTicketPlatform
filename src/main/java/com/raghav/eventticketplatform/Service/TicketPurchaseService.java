@@ -18,4 +18,8 @@ public class TicketPurchaseService {
     public List<Ticket> getTicketByAttendeeUsername(String username){
         return ticketRepo.findByAttendeeUsername(username);
     }
+    public Ticket getTicketByTicketCode(String TicketCode){
+
+        return ticketRepo.findTicketByTicketCode(TicketCode);
+    }
 }

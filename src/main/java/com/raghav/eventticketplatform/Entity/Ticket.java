@@ -18,7 +18,7 @@ public class Ticket {
     private Long ticketId;
 
     @Column(nullable = false, unique = true)
-    private Long ticketCode;
+    private String ticketCode;
 
 
     @ManyToOne

@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface TicketRepo extends JpaRepository<com.raghav.eventticketplatform.Entity.Ticket, Long> {
     List<Ticket> findByAttendeeUsername(String attendeeUsername);
+
+    Ticket findTicketByTicketCode(String ticketCode);
 }
