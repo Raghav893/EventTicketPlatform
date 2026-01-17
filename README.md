@@ -1,5 +1,6 @@
 # Event Ticketing Platform – Backend
-
+# CONTEXT DEPENDENCIES DIAGRAM
+![img.png](img.png)
 ## 1. Project Overview
 
 ### Problem Statement
