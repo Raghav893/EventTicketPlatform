@@ -23,6 +23,10 @@ The Event Ticketing Platform is a robust, backend-only RESTful API designed to m
 ## 2. Architecture Overview
     # CONTEXT DEPENDENCIES DIAGRAM
 ![img.png](img.png)
+
+
+# BEAN DEPENDENCY DIAGRAM
+![exported_from_idea.drawio.png](../../../Downloads/exported_from_idea.drawio.png)
 ### High-Level Architecture
 The system follows a standard Layered Architecture pattern using Spring Boot:
 
