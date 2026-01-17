@@ -1,6 +1,5 @@
 # Event Ticketing Platform – Backend
-# CONTEXT DEPENDENCIES DIAGRAM
-![img.png](img.png)
+
 ## 1. Project Overview
 
 ### Problem Statement
@@ -22,7 +21,8 @@ The Event Ticketing Platform is a robust, backend-only RESTful API designed to m
 3.  **STAFF:** restricted solely to the operational aspect of validating tickets at the event venue. They cannot modify event details or purchase history.
 
 ## 2. Architecture Overview
-
+    # CONTEXT DEPENDENCIES DIAGRAM
+![img.png](img.png)
 ### High-Level Architecture
 The system follows a standard Layered Architecture pattern using Spring Boot:
 
